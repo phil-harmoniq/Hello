@@ -19,15 +19,14 @@ namespace ArgTest
             Console.WriteLine($"Looks like you're using {OS}");
             if (args != null && args.Length > 0)
                 Console.WriteLine($"Arguments detected: {string.Join(", ", args)}");
-            Console.WriteLine("----------------------------------------------");
-            Console.WriteLine();
+            Console.WriteLine("----------------------------------------------\n");
         }
 
         public static string GetOSTag()
         {
-            if (IsWindows) return "Windows";
-            if (IsMacOS) return "MacOS";
-            if (IsLinux) return Environment.GetEnvironmentVariable("OS_PNAME");
+            if (IsWindows) return $"Windows {Environment.OSVersion.Version}";
+            if (IsMacOS) return $"MacOS {Environment.OSVersion.Version}";
+            if (IsLinux) return $"Linux {Environment.OSVersion.Version}";
             return "Unknown";
         }
     }
