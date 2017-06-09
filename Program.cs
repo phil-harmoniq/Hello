@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Runtime.InteropServices;
+using ConsoleColors;
 
 namespace ArgTest
 {
@@ -15,12 +16,17 @@ namespace ArgTest
 
         static void Main(string[] args)
         {
-            Console.WriteLine("\n------------ Hello from C#/.NET Core! ------------");
-            Console.WriteLine($"Looks like you're using {OS}! More detailed info:");
-            Console.WriteLine($"{Info}");
+            Clr.WriteLine(string.Format("\n------------ Hello from {0}{2}C#{3}/{1}{2}.NET Core{3}! ------------",
+                Clr.Magenta,
+                Clr.Cyan,
+                Clr.Bold,
+                Clr.Reset
+            ));
+            Clr.WriteLine($"Looks like you're using {Clr.Green}{Clr.Bold}{OS}{Clr.Reset}! More detailed info:");
+            Clr.WriteLine($"{Info}");
             if (args.Length > 0)
-                Console.WriteLine($"Arguments detected: {string.Join(", ", args)}");
-            Console.WriteLine("--------------------------------------------------\n");
+                Clr.WriteLine($"Arguments detected: {string.Join(", ", args)}");
+            Clr.WriteLine("--------------------------------------------------\n");
         }
 
         public static string GetOSTag()
