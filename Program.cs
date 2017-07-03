@@ -16,20 +16,20 @@ namespace ArgTest
 
         static void Main(string[] args)
         {
-            Clr.WriteLine(string.Format("\n------------ Hello from {0}{2}C#{3}/{1}{2}.NET Core{3}! ------------",
+            Printer.WriteLine(string.Format("\n------------ Hello from {0}{2}C#{3}/{1}{2}.NET Core{3}! ------------",
                 Clr.Magenta,
                 Clr.Cyan,
-                Clr.Bold,
-                Clr.Reset
+                Frmt.Bold,
+                Reset.Code
             ));
-            Clr.WriteLine($"Looks like you're using {Clr.Green}{Clr.Bold}{OS}{Clr.Reset}! More detailed info:");
-            Clr.WriteLine($"{Info}");
+            Printer.WriteLine($"Looks like you're using {Clr.Green}{Frmt.Bold}{OS}{Reset.Code}! More detailed info:");
+            Printer.WriteLine($"{Info}");
             if (args.Length > 0)
-                Clr.WriteLine($"Arguments detected: {string.Join(", ", args)}");
-            Clr.WriteLine("--------------------------------------------------\n");
+                Printer.WriteLine($"Arguments detected: {string.Join(", ", args)}");
+            Printer.WriteLine("--------------------------------------------------\n");
         }
 
-        public static string GetOSTag()
+        static string GetOSTag()
         {
             if (IsWindows) return "Windows";
             if (IsMacOS) return "macOS";
